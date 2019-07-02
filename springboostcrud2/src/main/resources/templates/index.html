@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+<link rel="icon" th:href="@{favicon.ico}"></link>
+
+<title>Employee Management</title>
+
+<script th:src="@{js/pace.min.js}"></script>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet"></link>
+<link th:href="@{/css/ripples.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/material-scrolltop.css}" rel="stylesheet"></link>
+<link th:href="@{css/material-blog.css}" rel="stylesheet"></link>
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Roboto:300,400,500,700}"
+	rel="stylesheet" type="text/css" />
+<link
+	th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+	rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<br />
+	<div class="container ">
+		<div class="row">
+			<div class="col-sm-12 blog-main">
+				<div class="row">
+					<div class="col-md-12">
+						<section class="blog-post">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="blog-post-content">
+										<h1 class="blog-post-title">Employee Management Screen</h1>
+										<br />
+
+										<div class="navbar navbar-inverse">
+											<div class="container-fluid">
+												<div class="navbar-header">
+													<button type="button" class="navbar-toggle"
+														data-toggle="collapse"
+														data-target=".navbar-responsive-collapse">
+														<span class="icon-bar"></span> <span class="icon-bar"></span>
+														<span class="icon-bar"></span>
+													</button>
+													<a class="navbar-brand" th:href="@{/}">Manage Employee
+														Information</a>
+												</div>
+												<div
+													class="navbar-collapse collapse navbar-responsive-collapse">
+													<ul class="nav navbar-nav">
+
+														<form class="navbar-form navbar-left" data-th-action="@{/searchEmployee}"
+																th:object="${employee}" method="GET">
+																<div class="form-group">
+																<input type="text" class="form-control col-md-8"
+																		placeholder="Search Here" th:field="*{name}"/>
+																</div>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input class="form-control col-md-8" type="submit" value="Search"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																<a th:href="addEmployee"><b>Add Employee</b></a>
+															</form>
+													</ul>
+													<br />
+												</div>
+											</div>
+										</div>
+
+										<table class="table table-condensed">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Name</th>
+													<th>Age</th>
+													<th>City</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="employee : ${employees}">
+													<th th:utext="${employee.id}" scope="row"></th>
+													<td th:utext="${employee.name}">Mark</td>
+													<td th:utext="${employee.age}"></td>
+													<td th:utext="${employee.city}"></td>
+													<td><a th:href="@{/update/{id}(id=${employee.id})}"><span
+															class="glyphicon glyphicon-edit"></span></a>&nbsp; &nbsp; <a
+														th:href="@{/delete/{id}(id=${employee.id})}"><span
+															class="glyphicon glyphicon-trash"></span></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<button class="material-scrolltop primary" type="button"></button>
+
+	<script th:src="@{js/jquery-1.11.3.min.js}"></script>
+	<script src="@{js/bootstrap.min.js}"></script>
+	<script src="@{js/ripples.min.js}"></script>
+	<script src="@{js/material.min.js}"></script>
+	<script src="@{js/material-scrolltop.js}"></script>
+	<script src="@{js/main.js}"></script>
+
+	<script>
+		$.material.init();
+		$('body').materialScrollTop();
+	</script>
+</body>
+</html>
