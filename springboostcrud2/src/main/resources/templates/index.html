@@ -56,15 +56,19 @@
 													class="navbar-collapse collapse navbar-responsive-collapse">
 													<ul class="nav navbar-nav">
 
-														<form class="navbar-form navbar-left" data-th-action="@{/searchEmployee}"
-																th:object="${employee}" method="GET">
-																<div class="form-group">
+														<form class="navbar-form navbar-left"
+															data-th-action="@{/searchEmployee}"
+															th:object="${employee}" method="GET">
+															<div class="form-group">
 																<input type="text" class="form-control col-md-8"
-																		placeholder="Search with name" th:field="*{name}"/>
-																</div>
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input class="form-control col-md-8" type="submit" value="Search"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																<a th:href="addEmployee"><b>Add Employee</b></a>
-															</form>
+																	placeholder="Search with name" th:field="*{name}" />
+															</div>
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+																class="form-control col-md-8" type="submit"
+																value="Search" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+																th:href="addEmployee"><b>Add Employee</b></a>
+														</form>
+
 													</ul>
 													<br />
 												</div>
