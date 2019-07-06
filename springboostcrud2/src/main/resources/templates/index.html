@@ -37,7 +37,7 @@
 							<div class="panel panel-default">
 								<div class="panel-body">
 									<div class="blog-post-content">
-										<h1 class="blog-post-title">Employee Management Screen</h1>
+										<div th:replace="header::header"></div>
 										<br />
 
 										<div class="navbar navbar-inverse">
@@ -68,7 +68,6 @@
 																value="Search" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 																th:href="addEmployee"><b>Add Employee</b></a>
 														</form>
-
 													</ul>
 													<br />
 												</div>
@@ -82,6 +81,7 @@
 													<th>Name</th>
 													<th>Age</th>
 													<th>City</th>
+													<th>Email</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -91,6 +91,7 @@
 													<td th:utext="${employee.name}">Mark</td>
 													<td th:utext="${employee.age}"></td>
 													<td th:utext="${employee.city}"></td>
+													<td th:utext="${employee.email}"></td>
 													<td><a th:href="@{/update/{id}(id=${employee.id})}"><span
 															class="glyphicon glyphicon-edit"></span></a>&nbsp; &nbsp; <a
 														th:href="@{/delete/{id}(id=${employee.id})}"><span
@@ -98,6 +99,7 @@
 												</tr>
 											</tbody>
 										</table>
+										<div th:replace="footer::footer"></div>
 									</div>
 								</div>
 							</div>

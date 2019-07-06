@@ -34,6 +34,7 @@ public class EmployeeDaoImp implements EmployeeDao{
 			employee.setName(rs.getString("name"));
 			employee.setCity(rs.getString("city"));
 			employee.setAge(rs.getInt("age"));
+			employee.setEmail(rs.getString("email"));		
 			return employee;
 		}
 	}
@@ -45,10 +46,11 @@ public class EmployeeDaoImp implements EmployeeDao{
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 
 				PreparedStatement ps = con.prepareStatement(
-						"INSERT INTO employee(name,age,city) " + "values(?,?,?)", new String[] { "id" });
+						"INSERT INTO employee(name,age,city,email) " + "values(?,?,?,?)", new String[] { "id" });
 				ps.setString(1, employee.getName());
 				ps.setInt(2, employee.getAge());
 				ps.setString(3, employee.getCity());
+				ps.setString(4, employee.getEmail());
 				return ps;
 			}
 		});
@@ -59,8 +61,8 @@ public class EmployeeDaoImp implements EmployeeDao{
 	}
 	
 	public void update(Employee employee) {
-		jdbcTemplate.update("update employee set name=?, age=?, city=? where id=?",employee.getName(),
-				employee.getAge(),employee.getCity(),employee.getId());
+		jdbcTemplate.update("update employee set name=?, age=?, city=?, email=? where id=?",employee.getName(),
+				employee.getAge(),employee.getCity(),employee.getEmail(),employee.getId());
 	}
 	
 	public Employee findById(Integer id){

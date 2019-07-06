@@ -3,7 +3,6 @@ package com.paing.springboostcrud2.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.stereotype.Service;
 
 import com.paing.springboostcrud2.dao.EmployeeDao;
