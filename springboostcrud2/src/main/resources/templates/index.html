@@ -86,7 +86,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr th:each="employee : ${employees}">
+												<tr th:each="employee : ${employees}" th:with="i=0">
 													<th th:utext="${employee.id}" scope="row"></th>
 													<td th:utext="${employee.name}">Mark</td>
 													<td th:utext="${employee.age}"></td>
